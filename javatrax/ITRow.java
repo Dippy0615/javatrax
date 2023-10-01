@@ -7,9 +7,9 @@ public class ITRow
 	private Vector<ITColumn> columns;
 	private int length;
 	
-	public ITRow (Vector<ITColumn> _columns)
+	public ITRow(Vector<ITColumn> _columns)
 	{
-		columns = _columns;
+		columns = (Vector<ITColumn>)_columns.clone();
 		length = columns.size();
 	}
 	

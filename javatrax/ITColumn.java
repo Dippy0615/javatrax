@@ -14,6 +14,12 @@ public class ITColumn
 	private int effect1;
 	private int effect2;
 	
+	private boolean isChannel;
+	private boolean isNote;
+	private boolean isInstrument;
+	private boolean isEffect;
+	private boolean isVolPan;
+	
 	public ITColumn (HashMap<String, Integer> _dataMap)
 	{
 		dataMap = _dataMap;
@@ -45,32 +51,32 @@ public class ITColumn
 	}
 	
 	public boolean hasEffect(){
-		return dataMap.containsKey("effect1");
+		return isEffect;
 	}
 	
 	public boolean hasVolPan(){
-		return dataMap.containsKey("vol/pan");
+		return isVolPan;
 	}
 	
 	public boolean hasInstrument(){
-		return dataMap.containsKey("instrument");
+		return isInstrument;
 	}
 	
 	public boolean hasNote(){
-		return dataMap.containsKey("note");
+		return isNote;
 	}
 	
 	public boolean hasChannel(){
-		return dataMap.containsKey("channel");
+		return isChannel;
 	}
 	
 	private void getColumnData(){
-		if(dataMap.containsKey("channel")) channel = dataMap.get("channel");
-		if(dataMap.containsKey("note")) note = dataMap.get("note");
-		if(dataMap.containsKey("instrument")) instrument = dataMap.get("instrument");
-		if(dataMap.containsKey("vol/pan")) volpan = dataMap.get("vol/pan");
-		if(dataMap.containsKey("effect1")) effect1 = dataMap.get("effect1");
-		if(dataMap.containsKey("effect2")) effect2 = dataMap.get("effect2");
+		if(dataMap.containsKey("channel")){isChannel = true; channel = dataMap.get("channel");}
+		if(dataMap.containsKey("note")) {isNote = true; note = dataMap.get("note");}
+		if(dataMap.containsKey("instrument")) {isInstrument = true; instrument = dataMap.get("instrument");}
+		if(dataMap.containsKey("vol/pan")) {isVolPan = true; volpan = dataMap.get("vol/pan");}
+		if(dataMap.containsKey("effect1")) {isEffect = true; effect1 = dataMap.get("effect1");}
+		if(dataMap.containsKey("effect2")) {isEffect = true; effect2 = dataMap.get("effect2");}
 	}
 	
 	public String toString(){
